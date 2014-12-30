@@ -20,7 +20,7 @@
         <div class="well col-md-3">
             <div ng-show="user">
                 <p>
-                    {{user.password.email}}
+                    You are logged in as, {{user.password.email}}, welcome!
                 </p>
 
                 <button class="btn btn-danger" ng-click="logOut()">Log Out</button>
@@ -64,7 +64,7 @@
 
             <form ng-submit="addItem(addItemText)">
                 <input type="text" ng-model="addItemText"/>
-                <input class="btn btn-default" type="submit"/>
+                <input class="btn btn-default" type="submit" value="Add Item"/>
             </form>
             
         </div>
@@ -76,7 +76,7 @@
         <div class="well " ng-show="user">
             <h3>Data Items</h3>
             <div ng-repeat="item in list">
-                {{item}}
+                {{item.$value}}
             </div>
         </div>
     </div>
