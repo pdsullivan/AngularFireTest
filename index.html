@@ -35,7 +35,7 @@
                     <input placeholder="email" class="form-control" type="email" ng-model="loginData.email" />
                     <input placeholder="password" class="form-control" type="password" ng-model="loginData.password"/>
 
-                    <input class="btn btn-success"  type="submit" value="Login"/>
+                    <input class="btn btn-default"  type="submit" value="Login"/>
 
 
                 </form>
@@ -43,13 +43,14 @@
                 <br/>
                 <h1 class="label label-warning">OR</h1>
                 <br/>
+                <br/>
 
                 <form class="form" ng-submit="createUser(createUserData)" name="">
                     <p>Register</p>
                     <input placeholder="email" class="form-control"  type="email" ng-model="createUserData.email" name="email"/>
                     <input placeholder="password"  class="form-control" type="password" ng-model="createUserData.password" name="password"/>
 
-                    <input type="submit" class="btn btn-success"  value="Create "/>
+                    <input type="submit" class="btn btn-success"  value="Register"/>
 
                 </form>
 
@@ -67,14 +68,17 @@
             </form>
             
         </div>
-        <div class="well col-md-3" ng-show="user">
+
+
+    </div>
+    <div class="row">
+
+        <div class="well " ng-show="user">
             <h3>Data Items</h3>
             <div ng-repeat="item in list">
                 {{item}}
             </div>
         </div>
-
-
     </div>
 </div>
 
