@@ -1,9 +1,18 @@
 <html ng-app="sampleApp">
 
 <head>
+    <link rel="shortcut icon" href="http://www.pdsullivan.com/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularFire Simple Authentication</title>
+
+
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/js/material.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/css/material.min.css" rel="stylesheet">
 
 
 
@@ -12,12 +21,10 @@
 
 <body>
 <div class="container" ng-controller="SampleController">
-    <div class="jumbotron">
-        <h2>AngularFire Testing</h2>
-    </div>
-    <div class="row">
 
-        <div class="well col-md-3">
+    <div class="row">
+        <div class="jumbotron">
+            <h2>AngularFire Testing</h2>
             <div ng-show="user">
                 <p>
                     You are logged in as, {{user.password.email}}, welcome!
@@ -29,42 +36,63 @@
 
             <div ng-hide="user">
 
-                <form class="form" ng-submit="authUser(loginData.email, loginData.password)" name="loginForm">
-                    <p>Login</p>
-                    <small>Try out with user "test@test.com" and password "test".</small>
-                    <input placeholder="email" class="form-control" type="email" ng-model="loginData.email" />
-                    <input placeholder="password" class="form-control" type="password" ng-model="loginData.password"/>
-
-                    <input class="btn btn-default"  type="submit" value="Login"/>
 
 
-                </form>
+                <p>Login</p>
+                <small>Try out with user "test@test.com" and password "test".</small>
+                <form class="form-inline" ng-submit="authUser(loginData.email, loginData.password)" name="loginForm">
 
-                <br/>
-                <h1 class="label label-warning">OR</h1>
-                <br/>
-                <br/>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" ng-model="loginData.email" placeholder="Enter email">
+                    </div>
 
-                <form class="form" ng-submit="createUser(createUserData)" name="">
-                    <p>Register</p>
-                    <input placeholder="email" class="form-control"  type="email" ng-model="createUserData.email" name="email"/>
-                    <input placeholder="password"  class="form-control" type="password" ng-model="createUserData.password" name="password"/>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" ng-model="loginData.password" placeholder="Password">
+                    </div>
 
-                    <input type="submit" class="btn btn-success"  value="Register"/>
+                    <input class="btn btn-success"  type="submit" value="Login"/>
+
 
                 </form>
-
             </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="well col-md-3" ng-hide="user">
+
+
+            <p>Register</p>
+            <small>Create a new user account to use.</small>
+            <form class="form" ng-submit="createUser(createUserData)" name="">
+                <div class="form-group">
+                    <input placeholder="Enter email" class="form-control"  type="email" ng-model="createUserData.email" name="email"/>
+
+                </div>
+
+                <div class="form-group">
+                    <input placeholder="Password"  class="form-control" type="password" ng-model="createUserData.password" name="password"/>
+
+                </div>
+
+                <input type="submit" class="btn btn-info"  value="Register"/>
+
+            </form>
+
         </div>
 
 
 
-        <div class="well col-md-3" ng-show="user">
+        <div class="well col-md-6" ng-show="user">
             <h3>Add Data</h3>
 
             <form ng-submit="addItem(addItemText)">
                 <input type="text" ng-model="addItemText"/>
-                <input class="btn btn-default" type="submit" value="Add Item"/>
+                <input class="btn btn-info" type="submit" value="Add Item"/>
             </form>
             
         </div>
