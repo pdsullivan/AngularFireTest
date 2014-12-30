@@ -46,7 +46,7 @@ app.controller("SampleController", ["$scope", "Auth","$firebase", function($scop
 
     var loadUserData = function(){
         if($scope.user && $scope.user.uid){
-            var usersRef = $scope.ref.child("users" + $scope.user.uid);
+            var usersRef = $scope.ref.child("testitems/users" + $scope.user.uid);
 
             var userSync = $firebase(usersRef);
 
@@ -59,7 +59,11 @@ app.controller("SampleController", ["$scope", "Auth","$firebase", function($scop
 
 
     $scope.addItem = function(text){
-        $scope.list.$add(text);
+        var item = {
+            text: $scope.addItemText
+        };
+
+        $scope.list.$add(item);
         $scope.addItemText = null;
     }
 
@@ -106,5 +110,8 @@ app.controller("SampleController", ["$scope", "Auth","$firebase", function($scop
 
     clearPopulateData();
     loadUserData();
+
+
+
 
 }])

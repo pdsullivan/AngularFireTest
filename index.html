@@ -102,9 +102,13 @@
 
         <div class="well " ng-show="user">
             <h3>Data Items</h3>
-            <div ng-repeat="item in list">
-                {{item.$value}}
-            </div>
+            
+            <p  ng-repeat="item in list">
+            {{item.text}}
+            </p>
+<pre>
+<span  ng-repeat="item in list">
+{{item}}</span></pre>
         </div>
     </div>
 </div>
